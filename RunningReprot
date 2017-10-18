@@ -1,0 +1,34 @@
+package runningreport;
+
+/**
+ *
+ * @author Student
+ */
+import java.util.Scanner;
+public class RunningReport {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        double [] mpd = new double[7];
+         double days = 0;
+        double highest = 0, total = 0, avg = 0, aday = 0;
+        
+        for(int i=0; i < mpd.length; i++) {
+            System.out.printf("Enter miles ran on day %d: ", i+1);
+            mpd[i] = input.nextDouble();
+        }
+        for(int i=0; i < mpd.length; i++) {
+            total += mpd[i];
+            avg = total / mpd.length;
+            
+            if(highest < mpd[i])
+                highest = mpd[i];
+            if(mpd[i] > 0)
+                ++days;
+            if(mpd[i] <= avg)
+                ++aday;
+        }
+        System.out.printf("Running days: %.2f Total Miles: %.2f \nAverage: %.2f \nDays below average: %.2f", days, total, avg, aday);               
+    }
+    
+}
